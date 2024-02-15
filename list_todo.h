@@ -20,15 +20,20 @@ class List: public Container{
       head = nullptr;
       size = 0;
 
-      Node* current = l.head;
-      Node** last = &head;
+      if(l.head != nullptr) {
+        head = new Node(l.head->value);
+        Node* current = head;
+        Node* lCurrent = l.head->next;
+      }
 
-        while (current != nullptr) {
-          *last = new Node(current->value);
-          last = &((*last)-> next);
+        while (lCurrent != nullptr) {
+          current->next = new Node(lCurrent->value);
           current = current->next;
-          size++;
+          lCurrent= lCurrent->next;
+          size++
         }
+        size++;
+      }
     }
 
     ~List(){
