@@ -20,17 +20,13 @@ class List: public Container{
       head = nullptr;
       size = 0;
 
-      if(l.head == nullptr){
-        return;
-      }
+      Node* current = l.head;
+      Node** last = &head;
 
-      Node* temp = l.head;
-      Node** current = &head;
-
-        while (temp != nullptr) {
-          *current = new Node(temp->value);
-          current = &((*current)-> next);
-          temp = temp->next;
+        while (current != nullptr) {
+          *last = new Node(current->value);
+          last = &((*last)-> next);
+          current = current->next;
           size++;
         }
     }
