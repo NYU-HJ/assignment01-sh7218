@@ -29,22 +29,21 @@ class ArrayList{
 
     ArrayList(ArrayList<T>& l){
         // your code here
-        head=nullptr;
-        if (l.head == nullptr){
-          return;
-        }
-        ArrayListNode<T>* current = l.head;
-        ArrayListNode<T>* last = new ArrayListNode<T>(current-> value);
-        head = last;
-        current = current->next;
+        head = nullptr;
 
-        while (current != nullptr) {
-          last->next = new ArrayListNode<T>(current->value);
-          last = last->next;
-          current = current->next;
+        if(l.head != nullptr){
+          head = new ArrayListNode<T>(l.head->value);
+          ArrayListNode<T>* current = head;
+          ArrayListNode<T>* lcurrent = l.head->next;
+
+          while(lCurrent != nullptr){
+            current->next = new ArrayListNode<T>(lCurrent->value);
+            current = current->next;
+            lcurrent = lcurrent ->next;
+          }
         }
-        size = l.size;
     }
+    
     ~ArrayList(){
         // your code here
         ArrayListNode<T>* current = head;
