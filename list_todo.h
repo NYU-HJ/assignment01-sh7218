@@ -24,14 +24,14 @@ class List: public Container{
         head = new Node(l.head -> value);
         Node* current = head;
         Node* lCurrent = l.head->next;
-        size = 1;
-
+  
         while (lCurrent != nullptr) {
           current->next = new Node(lCurrent-> value);
           current = current->next;
           lCurrent = lCurrent->next;
           size++;
         }
+        size++;
       }
     }
 
