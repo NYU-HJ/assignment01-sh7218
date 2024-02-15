@@ -20,9 +20,10 @@ class List: public Container{
       head = nullptr;
 
       if(l.head != nullptr){
-        head = new Node(l.head -> value);
+        head = new Node(l.head->value);
         Node* current = head;
         Node* lCurrent = l.head->next;
+        
         while (lCurrent != nullptr) {
           current->next = new Node(lCurrent-> value);
           current = current->next;
