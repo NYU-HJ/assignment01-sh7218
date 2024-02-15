@@ -20,19 +20,19 @@ class List: public Container{
       head = nullptr;
       size = 0;
 
-      if(l.head != nullptr){
-        head = new Node(l.head -> value);
-        Node* current = head;
-        Node* lCurrent = l.head->next;
-  
-        while (lCurrent != nullptr) {
-          current->next = new Node(lCurrent-> value);
-          current = current->next;
-          lCurrent = lCurrent->next;
+      if(l.head == nullptr){
+        return;
+      }
+
+      Node* temp = l.head;
+      Node** current = &head;
+
+        while (temp != nullptr) {
+          *current = new Node(temp->value);
+          current = &((*current)-> next);
+          temp = temp->next;
           size++;
         }
-        size++;
-      }
     }
 
     ~List(){
