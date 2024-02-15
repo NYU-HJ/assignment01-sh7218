@@ -18,19 +18,21 @@ class List: public Container{
     List(List& l){
       // Your code here
       head = nullptr;
+      size = 0;
 
       if(l.head != nullptr){
-        head = new Node(l.head->value);
+        head = new Node(l.head -> value);
         Node* current = head;
         Node* lCurrent = l.head->next;
-        
+        size = 1;
+
         while (lCurrent != nullptr) {
           current->next = new Node(lCurrent-> value);
           current = current->next;
           lCurrent = lCurrent->next;
+          size++;
         }
       }
-      size = l.size;
     }
 
     ~List(){
