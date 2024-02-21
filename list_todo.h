@@ -15,7 +15,7 @@ class List: public Container{
       size = 1;
     }
 
-    List(List& l){
+    List(const List& l){
       // Your code here
       head = nullptr;
       size = 0;
@@ -29,7 +29,7 @@ class List: public Container{
           current->next = new Node(lCurrent->value);
           current = current->next;
           lCurrent= lCurrent->next;
-          size++
+          size++;
         }
         size++;
       }

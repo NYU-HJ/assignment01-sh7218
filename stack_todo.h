@@ -15,7 +15,7 @@ class Stack: public Container{
       size = 1;
     }
 
-    Stack(Stack& l){
+    Stack(const Stack& l){
       // Your code here
       head = nullptr;
 
@@ -33,18 +33,17 @@ class Stack: public Container{
     }
 
     ~Stack(){
-      // Your code here
-      Node* current = head;
-      while (current != nullptr) {
-        Node* next = current->next;
-        delete current;
-        current = next;
+      while (head != nullptr) {
+      Node* temp = head;
+      head = head->next;
+      delete temp;
       }
     }
 
     void push(int value){
       // Your code here
       Node* newNode = new Node(value);
+      newNode->next = head;
       head = newNode;
       size++;
     }

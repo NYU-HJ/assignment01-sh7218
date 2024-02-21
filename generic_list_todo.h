@@ -27,7 +27,7 @@ class ArrayList{
       size = 1;
     }
 
-    ArrayList(ArrayList<T>& l){
+    ArrayList(const ArrayList<T>& l){
         // your code here
         head = nullptr;
 
@@ -36,8 +36,8 @@ class ArrayList{
           ArrayListNode<T>* current = head;
           ArrayListNode<T>* lcurrent = l.head->next;
 
-          while(lCurrent != nullptr){
-            current->next = new ArrayListNode<T>(lCurrent->value);
+          while(lcurrent != nullptr){
+            current->next = new ArrayListNode<T>(lcurrent->value);
             current = current->next;
             lcurrent = lcurrent ->next;
           }
